@@ -28,7 +28,8 @@
 - **Kubernetes**: 도입 검토 중.
 
 ## 최종 목표
-1. MSA로 구성하고, RESTful API 및 gRPC, GraphQL 등 최신 기술 스택을 적용하여 서버 성능을 극대화. 로드 밸런싱 및 gRPC 등의 기술을 사용하여 효율적인 구성 목표.
+1. MSA로 구성하고, RESTful API 및 gRPC, GraphQL 등 최신 기술 스택을 적용하여 서버 성능을 극대화. 로드 밸런싱 및 gRPC 등의 기술을 학습해보며 적용
+2. goroutines 적용 및 IOCP 와 차이점 확인   
 
 ## 설치 및 실행
 
