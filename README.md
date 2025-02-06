@@ -25,7 +25,8 @@
 
 ### 배포 및 운영
 - **Docker**: 컨테이너화로 배포 환경 일관성 유지.
-- **Kubernetes**: 도입 검토.
+- **Kubernetes**: 도입
+- **CI/CD** : 검토
 
 ## 최종 목표
 1. MSA로 구성하고, RESTful API 및 gRPC, GraphQL 등 최신 기술 스택을 적용하여 서버 성능을 극대화. 로드 밸런싱 및 gRPC 등의 기술을 학습해보며 적용
