@@ -42,7 +42,9 @@
 | **game-server** | 개발 중 | Protobuf 기반 IOCP 실시간 통신 성능 극대화 서버 |
 | **coding-test-server**| 개발 중 | 코딩 테스트 답안 검증 및 결과 처리 서버 |
 | **oauth2-server** | 도입 예정 | 통합 로그인(SSO) 지원을 위한 인증 서버 |
-| **kubernetes-setting**| 구축 완료 (고도화 필요) | K8s 클러스터 자동화 Shell Script (3 Nodes) |
+| **kubernetes-setting**| 자료 폴더 | K8s 클러스터 자동화 Shell Script (3 Nodes) |
+| **Infra-setting**| 자료 폴더 | Kafka, Redis 등등 인프라 관련 내용 기입 |
+
 
 ---
 
