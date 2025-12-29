@@ -1,40 +1,58 @@
-# 통합 플랫폼 웹사이트
+# 🚀 통합 플랫폼 웹사이트 구축 프로젝트
 
-이 프로젝트는 코딩 테스트, 게임 스토어, 웹 게임 서비스 연동을 통합한 플랫폼 웹사이트를 구축하고 운영하는 것을 목표로 합니다.
+본 프로젝트는 **코딩 테스트**, **게임 스토어**, 그리고 **웹 게임 서비스 연동**을 하나로 통합한 고성능 플랫폼을 구축하고 운영하는 것을 목표로 합니다.
 
-## 주요 기능 개발 예정
-1. **코딩 테스트 기능**: 테스트에 접속한 사용자를 실시간 감시하며 컴파일 기능을 제공
-2. **게임 스토어**: Windows Application 게임 플랫폼을 등록하여 자동 업데이트, 웹 게임 플랫폼 서비스 연동
-3. **웹 게임**: 웹 플랫폼으로 개발된 게임들을 해당 플랫폼 계정과 연동하여 데이터를 관리하며 간단히 서비스하는 것을 목표로 합니다. (웹 기반 API 서버, WebSocket, gRPC를 활용하여 실시간 게임 서버를 간단히 구현)
+## 1. 주요 개발 기능
+1. **코딩 테스트**: 응시자 실시간 모니터링 및 코드 컴파일/실행 환경 제공.
+2. **게임 스토어**: Windows 애플리케이션 기반 게임 등록, 자동 업데이트 및 웹 게임 플랫폼 서비스 연동.
+3. **웹 게임 서비스**: 웹 플랫폼 게임과 통합 계정을 연동하여 데이터를 관리하며, WebSocket 및 gRPC를 활용한 실시간 게임 환경 구축.
 
-## 기술 스택
+---
 
-### 프론트엔드
-- **React.js (v18)** (TypeScript): UI 구성 및 컴포넌트 기반 아키텍처.
-- **Redux**: 복잡한 상태 관리를 위한 라이브러리.
-- **Recoil**: React 애플리케이션의 상태 관리 (zustand와 비교 검토 예정).
-- **Next.js**: 서버 사이드 렌더링(SSR) 및 정적 사이트 생성을 통한 SEO 최적화.
+## 2. 기술 스택 (Tech Stack)
 
-### 백엔드
-- **Go (Golang)**: 인증 및 URL 필터 구현, gRPC 서버 구축.
-- **Nginx**: API 게이트웨이 역할 수행. 현재는 단일 모듈로 구성 예정, Spring Cloud와 로드 밸런싱 비교 검토.
-- **Spring**: API 서버 구축, JPA를 사용한 데이터베이스 접근.
+### 🎨 Frontend
+- **Framework**: `React.js (v18)` (TypeScript), `Next.js` (SSR/SEO 최적화)
+- **State Management**: `Redux`, `Recoil` 
 
-### 데이터베이스
-- **MySQL**: 관계형 데이터베이스, 각 모듈별 DB 분리 시행 검토.
+### ⚙️ Backend
+- **Languages**: `Go (Golang)`, `Spring Boot (JDK 17)`
+- **Infrastructure**: `Nginx` (API Gateway & Load Balancer)
+- **Communication**: `gRPC` (Protobuf), `RESTful API`, `GraphQL`, `WebSocket`
 
-### 배포 및 운영
-- **Docker**: 컨테이너화로 배포 환경 일관성 유지.
-- **Kubernetes**: 도입
-- **CI/CD** : 검토
+### 📦 Database & DevOps
+- **Database**: `MySQL` (도입 필요), `H2` (로컬 테스트용)
+- **Deployment**: `Docker`, `Kubernetes (K8s)` (3개 노드 운영 기준)
+- **CI/CD**: 도입 및 자동화 검토 중
 
-## 최종 목표
-1. MSA로 구성하고, RESTful API 및 gRPC, GraphQL 등 최신 기술 스택을 적용하여 서버 성능을 극대화. 로드 밸런싱 및 gRPC 등의 기술을 학습해보며 적용
-2. goroutines 적용 및 IOCP 와 차이점 확인   
+---
 
-## 설치 및 실행
+## 3. 프로젝트 구성 및 아키텍처 (MSA)
 
-### 필수 사항
-- Node.js v18
-- Go 1.22
-- JDK 17
+현재 플랫폼은 마이크로서비스 아키텍처(MSA)를 지향하며 각 모듈은 다음과 같이 구성됩니다.
+
+| 모듈명 | 상태 | 주요 역할 |
+| :--- | :--- | :--- |
+| **web-front** | 개발 중 | React 기반 사용자 웹 서비스 화면 |
+| **API-gateway** | **완료** | 인증 필터 및 시그니처 검증 (Spring/Go 기반) |
+| **API-server** | 고도화 중 | 핵심 비즈니스 로직 처리 및 API 제공 |
+| **Signal-server** | 고도화 중 | P2P 통신 매개 및 SFU 서버 사용자 정보 전달 |
+| **SFU-server** | 개발 중 | 실시간 미디어 스트리밍(Streaming) 주체 서버 |
+| **game-server** | 개발 중 | Protobuf 기반 실시간 통신 성능 극대화 서버 |
+| **coding-test-server**| 개발 중 | 코딩 테스트 답안 검증 및 결과 처리 서버 |
+| **oauth2-server** | 도입 예정 | 통합 로그인(SSO) 지원을 위한 인증 서버 |
+| **kubernetes-setting**| 진행 중 | K8s 클러스터 자동화 Shell Script (3 Nodes) |
+
+---
+
+## 4. 최종 목표 (Key Milestones)
+1. **성능 극대화**: MSA 구조 내에서 gRPC, 로드 밸런싱 등 최신 기술을 적용하여 서버 효율성 최적화.
+2. **통합 플랫폼 구축**: 웹 기반의 유기적인 서비스 생태계 조성.
+3. **멀티 OS 지원**: macOS 및 Windows 환경의 전용 클라이언트 구축.
+4. **자체 게임 개발**: 플랫폼에 최적화된 실시간 웹 게임 런칭.
+
+---
+
+## 5. 설치 및 실행 환경 (Prerequisites)
+- **Runtime**: `Node.js v18`, `Go 1.22`, `JDK 17`
+- **Compiler**: `gcc`
